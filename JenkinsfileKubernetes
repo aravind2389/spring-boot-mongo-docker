@@ -20,5 +20,11 @@ pipeline {
                 sh 'mvn -B clean package '
             }
         }
+
+        stage('Building docker image'){
+            steps{
+                sh 'docker built -t aravind2389/spring-boot-mongos'
+            }
+        }
     }
 }

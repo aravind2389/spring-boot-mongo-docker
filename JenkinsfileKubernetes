@@ -25,7 +25,8 @@ pipeline {
             steps{
                 sh '''
                     pwd
-                    docker image prune 
+                    docker image prune -f
+                    sleep 30
                     docker build -t aravind2389/spring-boot-mongos:$BUILD_NUMBER .
                     '''
             }

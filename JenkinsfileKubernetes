@@ -23,8 +23,11 @@ pipeline {
 
         stage('Building docker image'){
             steps{
-                sh 'pwd'
-                sh 'docker build -t aravind2389/spring-boot-mongos .'
+                sh '''
+                    pwd
+                    docker image prune 
+                    docker build -t aravind2389/spring-boot-mongos:$BUILD_NUMBER .
+                    '''
             }
         }
     }

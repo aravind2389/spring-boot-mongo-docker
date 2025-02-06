@@ -3,6 +3,7 @@ pipeline {
     environment {
         PROJECT_ID = 'demoproject-312207'
         REPOSITORY_NAME = 'aravind2389-springboot'
+        GCR_URL = "gcr.io/${PROJECT_ID}/${REPOSITORY_NAME}"
     }
     parameters{
         choice(name: 'CHOICE', choices: ['master', 'develop', ], description: 'select the branch')
@@ -28,7 +29,7 @@ pipeline {
         stage('Building docker image'){
             steps{
                 script {
-                    docker.build("${REPOSITORY_NAME}:${BUILD_NUMBER}")
+                    docker.build("${GCR_URL}:${BUILD_NUMBER}")
                 }
             }
         }
@@ -37,7 +38,7 @@ pipeline {
             steps{
                 script {
                     docker.withRegistry('https://gcr.io', 'acr_regist_key') {
-                        docker.image("${REPOSITORY_NAME}:${BUILD_NUMBER}").push()
+                        docker.image("${GCR_URL}:${BUILD_NUMBER}").push()
                     }
                 }
             }

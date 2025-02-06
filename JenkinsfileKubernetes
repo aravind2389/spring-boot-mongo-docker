@@ -33,5 +33,15 @@ pipeline {
                 }
             }
         }
+
+        stage('Push to GCR'){
+            steps{
+                script {
+                    docker.withRegistry('https://gcr.io', 'acr_regist_key') {
+                        docker.image("${GCR_URL}:${BUILD_NUMBER}").push()
+                    }
+                }
+            }
+        }
     }
 }

@@ -1,5 +1,10 @@
 pipeline {
     agent any
+    environment {
+        PROJECT_ID = 'demoproject-312207'
+        REPOSITORY_NAME = 'aravind2389-springboot'
+        GCR_URL = "GCR.IO/${PROJECT_ID}/${REPOSITORY_NAME}"
+    }
     parameters{
         choice(name: 'CHOICE', choices: ['master', 'develop', ], description: 'select the branch')
     }
@@ -23,12 +28,9 @@ pipeline {
 
         stage('Building docker image'){
             steps{
-                sh '''
-                    pwd
-                    docker image prune -a --force
-                    sleep 5
-                    docker build -t aravind2389/spring-boot-mongos:$BUILD_NUMBER .
-                    '''
+                script {
+                    docker.build("${GCR_URL}:${BUILD_NUMBER}")
+                }
             }
         }
     }

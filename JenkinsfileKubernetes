@@ -3,7 +3,7 @@ pipeline {
     environment {
         PROJECT_ID = 'demoproject-312207'
         REPOSITORY_NAME = 'aravind2389-springboot'
-        GCR_URL = "GCR.IO/${PROJECT_ID}/${REPOSITORY_NAME}"
+        GCR_URL = "gcr.io/${PROJECT_ID}/${REPOSITORY_NAME}"
     }
     parameters{
         choice(name: 'CHOICE', choices: ['master', 'develop', ], description: 'select the branch')

@@ -1,8 +1,8 @@
 name: Spring-mongo-workflow
 on: 
   push:
-    branches: 
-      - main 
+    branches:
+      - master
 jobs:
   run-java-script:
     runs-on: ubuntu-latest

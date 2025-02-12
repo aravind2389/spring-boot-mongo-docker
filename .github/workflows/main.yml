@@ -7,7 +7,7 @@ jobs:
   run-java-script:
     runs-on: ubuntu-latest
     env:
-      IMAGE_NAME: spring-mongo-workflow
+      IMAGE_NAME: aravind2389-springboot
       PROJECT_ID: demoproject-312207
     steps:
       - name: Checkout

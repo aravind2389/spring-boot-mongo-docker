@@ -21,6 +21,6 @@ jobs:
           path: staging
           
       - name: Build and push Docker images
-      - uses: docker/build-push-action@v6.13.0
-          run: docker build -t aravind2389/spring-boot:latest .
+        run: docker build -t aravin2389/springboot-mongo:latest .
+      
       

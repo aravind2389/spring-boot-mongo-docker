@@ -44,7 +44,7 @@ jobs:
       - name: Configure Docker Client
         run: |
           gcloud auth configure-docker --quiet
-          gcloud auth configure-docker us-central1-docker.pkg.dev --quiet
+          gcloud auth configure-docker us-docker.pkg.dev --quiet
           gcloud config list
 
       - name: Push Docker Image to Container Registry (GCR)

@@ -55,3 +55,8 @@ jobs:
           docker push gcr.io/${{ env.PROJECT_ID }}/$IMAGE_NAME:latest
           docker push gcr.io/${{ env.PROJECT_ID }}/$IMAGE_NAME:$GIT_TAG
           docker images 
+
+      - name: 'Set up Kustomize'
+        run: |-
+          curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.4.3/kustomize_v5.4.3_linux_amd64.tar.gz
+          chmod u+x ./kustomize

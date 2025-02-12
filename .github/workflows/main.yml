@@ -38,3 +38,4 @@ jobs:
         run: |
           gcloud auth configure-docker --quiet
           gcloud auth configure-docker us-central1-docker.pkg.dev --quiet
+          gcloud config list

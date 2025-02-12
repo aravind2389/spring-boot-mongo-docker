@@ -6,9 +6,12 @@ on:
 jobs:
   run-java-script:
     runs-on: ubuntu-latest
-
+    env:
+      IMAGE_NAME: Spring-mongo-workflow
+      PROJECT_ID: demoproject-312207
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
       - uses: actions/setup-java@v4
         with:
           java-version: '17'
@@ -19,9 +22,19 @@ jobs:
         with:
           name: Package
           path: staging
+
+      - uses: google-github-actions/setup-gcloud@v2
+        with: 
+          service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
+          project_id: ${{ env.PROJECT_ID }}
+          export_default_credentials: true
         
       - name: Build and push Docker images
         run: |
           docker build -t aravin2389/springboot-mongo:latest .
           docker images 
-      
+
+      - name: Configure Docker Client
+        run: |
+          gcloud auth configure-docker --quiet
+          gcloud auth configure-docker us-central1-docker.pkg.dev --quiet

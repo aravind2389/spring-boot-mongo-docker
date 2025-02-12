@@ -20,7 +20,10 @@ jobs:
           name: Package
           path: staging
           
-      - name: Build and push Docker images
-        run: docker build -t aravin2389/springboot-mongo:latest .
-      
+  build-image:
+      runs-on: ubuntu-latest
+      needs: run-java-script
+      steps:
+        - name: Build and push Docker images
+        - run: docker build -t aravin2389/springboot-mongo:latest .
       

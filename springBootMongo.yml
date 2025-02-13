@@ -92,6 +92,20 @@ spec:
               key: password 
         ports:
         - containerPort: 27017
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: springappconfigmap
+              key: username
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: springappsecrets
+              key: password
+        volumeMounts:
+        - name: mongodb-pvc
+          mountPath: /data/db
 ---
 # Mongo Node Port RC
 apiVersion: v1

@@ -28,7 +28,6 @@ spec:
   - ReadWriteOnce
   gcePersistentDisk:
     pdName: gce-nfs-disk
-    fstype: ext4
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim

@@ -23,6 +23,11 @@ spec:
       containers:
       - image: gcr.io/demoproject-312207/test-mongo-app:latest
         name: springboot
+        resources:
+          limits:
+            cpu: "1"
+          requests:
+            cpu: "0.5"
         ports:
         - containerPort: 8080  
         env:
@@ -69,6 +74,11 @@ spec:
       containers:
       - image: mongo
         name: mongo
+        resources:
+          limits:
+            cpu: "1"
+          requests:
+            cpu: "0.5"
         env:
         - name: MONGO_INITDB_ROOT_USERNAME
           valueFrom:

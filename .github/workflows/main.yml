@@ -37,7 +37,7 @@ jobs:
         
       - name: Build and push Docker images
         run: |
-          docker build -t $IMAGE_NAME:latest ./spring-boot-mongo-docker/Dockerfile_WithScript
+          docker build -t $IMAGE_NAME:latest .
           docker images 
 
       - name: Configure Docker Client

@@ -26,8 +26,8 @@ spec:
     storage: 1Gi
   accessModes:
   - ReadWriteOnce
-  gcePersistentDisk:
-    pdName: gce-nfs-disk
+  hostPath:
+    path: "/tmp/mongodata"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim

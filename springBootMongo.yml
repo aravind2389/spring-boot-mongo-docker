@@ -92,13 +92,6 @@ spec:
               key: password 
         ports:
         - containerPort: 27017
-        volumeMounts:
-        - name: mongo-persistent-storage
-          mountPath: /data/db
-      volumes:
-      - name: mongo-persistent-storage
-        hostPath:
-         path: /tmp/dbbackup
 ---
 # Mongo Node Port RC
 apiVersion: v1

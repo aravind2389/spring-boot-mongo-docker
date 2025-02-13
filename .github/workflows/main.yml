@@ -9,7 +9,7 @@ jobs:
     env:
       IMAGE_NAME: test-mongo-app
       PROJECT_ID: demoproject-312207
-      GKE_CLUSTER : springboot-mongo-app
+      GKE_CLUSTER : springboot-test-app
       GKE_ZONE : us-central1
 
     steps:

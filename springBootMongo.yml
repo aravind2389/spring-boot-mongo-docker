@@ -21,7 +21,7 @@ spec:
         app: springboot
     spec:
       containers:
-      - image: hrj473/spring-boot-mongo
+      - image: gcr.io/demoproject-312207/test-mongo-app:latest
         name: springboot
         ports:
         - containerPort: 8080  

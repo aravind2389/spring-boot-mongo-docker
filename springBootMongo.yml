@@ -21,7 +21,7 @@ kind: PersistentVolume
 metadata:
   name: pv-hostpath
 spec:
-  storageClassName: ""
+  storageClassName: "manual"
   capacity:
     storage: 1Gi
   accessModes:
@@ -35,15 +35,12 @@ kind: PersistentVolumeClaim
 metadata:
   name: pvc-hostpath
 spec:
-  storageClassName: ""
+  storageClassName: "manual"
   accessModes:
   - ReadWriteMany
   resources:
     requests:
       storage: 1Gi
-  selector:
-    matchLabels:
-      app: springapp
 
 ---
 ## Spring Boot App

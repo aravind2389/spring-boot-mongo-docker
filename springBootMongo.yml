@@ -27,7 +27,7 @@ spec:
   accessModes:
   - ReadWriteMany
   nfs:
-    path: /volume
+    path: /myVolume
     server: 10.0.0.2
 ---
 apiVersion: v1

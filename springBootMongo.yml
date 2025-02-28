@@ -14,7 +14,7 @@ metadata:
 type: Opaque
 stringData:   # We can define multiple key value pairs.
   password: devdb@123
-
+  
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -41,7 +41,7 @@ spec:
   resources:
     requests:
       storage: 1Gi
-
+"""
 ---
 ## Spring Boot App
 apiVersion: apps/v1

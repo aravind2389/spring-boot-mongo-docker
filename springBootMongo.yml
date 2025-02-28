@@ -21,11 +21,11 @@ kind: PersistentVolume
 metadata:
   name: pv-hostpath
 spec:
-  storageClassName: "standard"
+  storageClassName: ""
   capacity:
     storage: 1Gi
   accessModes:
-  - ReadWriteOnce
+  - ReadWriteMany
   nfs:
     path: /volume
     server: 10.0.0.2
@@ -35,9 +35,9 @@ kind: PersistentVolumeClaim
 metadata:
   name: pvc-hostpath
 spec:
-  storageClassName: "standard"
+  storageClassName: ""
   accessModes:
-  - ReadWriteOnce
+  - ReadWriteMany
   resources:
     requests:
       storage: 1Gi

@@ -41,7 +41,7 @@ spec:
   resources:
     requests:
       storage: 1Gi
-"""
+      
 ---
 ## Spring Boot App
 apiVersion: apps/v1

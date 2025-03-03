@@ -61,7 +61,7 @@ spec:
     spec:
       containers:
       - name: springappcontainer
-        image: gcr.io/demoproject-312207/test-mongo-app:latest
+        image: gcr.io/demoproject-312207/test-mongo-app:v1
         ports:
         - containerPort: 8080
         env:
